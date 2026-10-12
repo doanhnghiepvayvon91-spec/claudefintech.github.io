@@ -1,0 +1,167 @@
+html
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIN TECH | Tư vấn tài chính doanh nghiệp</title>
+    <!-- Nhúng thư viện Tailwind CSS để xử lý giao diện -->
+    <script src="https://tailwindcss.com"></script>
+    <!-- Nhúng Font Awesome để hiển thị các icon -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        /* Tối ưu hiệu ứng làm mờ và phủ màu xanh đen lên ảnh nền giống hệt ảnh mẫu */
+        .bg-overlay {
+            background: linear-gradient(rgba(20, 40, 30, 0.75), rgba(15, 30, 20, 0.85)), 
+                        url('https://unsplash.com');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans antialiased text-gray-200">
+
+    <!-- Toàn bộ khung màn hình điện thoại (Mobile Wrapper) -->
+    <div class="max-w-md mx-auto min-h-screen bg-overlay relative flex flex-col justify-between p-6 shadow-2xl overflow-hidden">
+        
+        <!-- THÀNH PHẦN 1: THANH ĐẦU TRANG (HEADER) -->
+        <header class="flex justify-between items-center pt-2">
+            <!-- Logo và tên thương hiệu (Đã đổi sang Icon FinTech: Chip + Dollar) -->
+            <div class="flex items-center space-x-2">
+                <div class="bg-white/95 p-2 rounded-md shadow-sm w-10 h-10 flex items-center justify-center relative">
+                    <i class="fa-solid fa-microchip text-emerald-800 text-lg"></i>
+                    <i class="fa-solid fa-dollar-sign text-emerald-500 text-[10px] absolute font-bold"></i>
+                </div>
+                <div>
+                    <h1 class="text-sm font-black tracking-wider text-white leading-none">FIN TECH</h1>
+                    <p class="text-[9px] text-gray-400 font-medium tracking-tight uppercase mt-0.5">Tư vấn & Giải pháp</p>
+                </div>
+            </div>
+            <!-- Nút Menu 3 sọc -->
+            <button class="w-10 h-10 flex items-center justify-center rounded-md border border-white/20 bg-black/10 active:bg-black/30 transition">
+                <i class="fa-solid fa-bars text-white text-lg"></i>
+            </button>
+        </header>
+
+        <!-- THÀNH PHẦN 2: NỘI DUNG CHÍNH (MAIN CONTENT) -->
+        <main class="my-auto py-8">
+            <!-- Dòng giới thiệu nhỏ phía trên -->
+            <div class="flex items-center space-x-2 mb-4">
+                <div class="w-6 h-[2px] bg-emerald-500"></div>
+                <p class="text-xs uppercase font-bold tracking-widest text-emerald-400">
+                    FIN TECH &bull; TƯ VẤN TÀI CHÍNH DOANH NGHIỆP
+                </p>
+            </div>
+
+            <!-- Tiêu đề lớn (Headline) -->
+            <h2 class="text-4xl font-extrabold text-white tracking-tight leading-tight mb-6">
+                Cơ cấu khoá <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-green-300 font-black">
+                    DOANH NGHIỆP
+                </span>
+            </h2>
+
+            <!-- Đoạn văn mô tả (Description) -->
+            <p class="text-sm text-gray-300 leading-relaxed font-light pr-4">
+                Đơn vị tiên phong hỗ trợ doanh nghiệp tối ưu nguồn vốn và tiếp cận giải pháp tài chính phù hợp với thực trạng hoạt động và kế hoạch phát triển.
+            </p>
+        </main>
+
+        <!-- THÀNH PHẦN 3: KHU VỰC LIÊN HỆ & NÚT BẤM (CTA FOOTER) -->
+        <footer class="pb-4">
+            <div class="grid grid-cols-2 gap-4 items-center">
+                <!-- Nút Đăng ký vay vốn (Bấm vào sẽ gọi hàm mở Form) -->
+                <button onclick="openModal()" class="bg-emerald-800 hover:bg-emerald-700 active:scale-95 transition-all text-white py-3.5 px-4 rounded-lg font-bold text-center text-sm flex items-center justify-between shadow-lg shadow-emerald-900/30 w-full cursor-pointer">
+                    <span>Đăng ký vay vốn</span>
+                    <i class="fa-solid fa-paper-plane text-xs opacity-80"></i>
+                </button>
+
+                <!-- Khối gọi tư vấn với số điện thoại của bạn -->
+                <div class="pl-2">
+                    <p class="text-[11px] text-emerald-400 font-semibold uppercase tracking-wider">Gọi tư vấn</p>
+                    <a href="tel:0912413138" class="text-lg font-black text-white hover:text-emerald-300 transition block leading-tight mt-0.5">
+                        0912 413 138
+                    </a>
+                </div>
+            </div>
+        </footer>
+
+        <!-- THÀNH PHẦN 4: NÚT BẤM NỔI ZALO LIÊN KẾT ĐẾN SỐ 0912413138 -->
+        <a href="https://zalo.me" target="_blank" class="absolute bottom-6 right-6 w-12 h-12 bg-blue-600 hover:bg-blue-500 text-white rounded-full flex items-center justify-center shadow-xl hover:scale-110 active:scale-95 transition-all animate-bounce z-40" title="Chat qua Zalo">
+            <i class="fa-solid fa-comment-dots text-xl"></i>
+        </a>
+
+        <!-- THÀNH PHẦN 5: POPUP FORM ĐĂNG KÝ (MODAL) -->
+        <div id="registerModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm transition-all duration-300">
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-sm p-6 shadow-2xl relative text-gray-100">
+                
+                <!-- Tiêu đề Form -->
+                <div class="text-center mb-6">
+                    <h3 class="text-xl font-bold text-white">Đăng Ký Tư Vấn Vốn</h3>
+                    <p class="text-xs text-emerald-400 mt-1">FIN TECH sẽ liên hệ lại bạn trong 15 phút</p>
+                </div>
+
+                <!-- Các ô nhập dữ liệu (Form) -->
+                <form onsubmit="handleSubmit(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1.5">Họ và tên</label>
+                        <input type="text" required placeholder="Ví dụ: Nguyễn Văn A" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500 transition">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1.5">Số điện thoại</label>
+                        <input type="tel" required placeholder="Ví dụ: 0912xxxxxx" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500 transition">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1.5">Nhu cầu vay vốn</label>
+                        <select required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-emerald-500 transition">
+                            <option value="" disabled selected class="text-gray-500">-- Chọn hạn mức vốn --</option>
+                            <option value="duoi-500">Dưới 500 triệu</option>
+                            <option value="500-2ty">Từ 500 triệu - 2 tỷ</option>
+                            <option value="2ty-5ty">Từ 2 tỷ - 5 tỷ</option>
+                            <option value="tren-5ty">Trên 5 tỷ đồng</option>
+                        </select>
+                    </div>
+
+                    <!-- Nút gửi và Nút đóng -->
+                    <div class="pt-2 grid grid-cols-2 gap-3">
+                        <button type="button" onclick="closeModal()" class="w-full border border-slate-700 hover:bg-slate-800 text-gray-400 py-2.5 rounded-lg text-sm font-medium transition cursor-pointer">
+                            Đóng
+                        </button>
+                        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white py-2.5 rounded-lg text-sm font-bold shadow-lg shadow-emerald-950 transition cursor-pointer">
+                            Gửi đăng ký
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ĐOẠN JAVASCRIPT ĐIỀU KHIỂN ĐÓNG/MỞ POPUP -->
+    <script>
+        const modal = document.getElementById('registerModal');
+
+        // Hàm mở Form popup
+        function openModal() {
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Khóa cuộn trang khi mở form
+        }
+
+        // Hàm đóng Form popup
+        function closeModal() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Mở lại cuộn trang
+        }
+
+        // Xử lý sự kiện khi khách hàng bấm nút Gửi đăng ký
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Cảm ơn bạn! FIN TECH đã tiếp nhận thông tin đăng ký tư vấn vay vốn thành công.');
+            closeModal();
+        }
+    </script>
+
+</body>
+</html>
